@@ -44,14 +44,16 @@ R.version.string
 devtools::build_readme()  # Renders the readme
 
 usethis::use_build_ignore(
-  "setup"
+  c("setup", "README_files")
 )
 
-use_pipe(export = TRUE)  # Make maggrittr pipes available to users
+use_pipe(export = TRUE)  # Make magrittr pipes available to users
 
 devtools::document()
 
 # devtools::run_examples()
+
+Sys.setenv('_R_CHECK_SYSTEM_CLOCK_' = 0)
 
 devtools::check(document = FALSE)
 
