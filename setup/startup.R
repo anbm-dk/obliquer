@@ -37,7 +37,7 @@ R.version.string
 
 # usethis::use_data_raw()  # Creates folder for raw data
 
-usethis::use_readme_rmd()  # Creates and rmd for the readme, adds it to buildignore
+# usethis::use_readme_rmd()  # Creates and rmd for the readme, adds it to buildignore
 
 # usethis::use_description()
 

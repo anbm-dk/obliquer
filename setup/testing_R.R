@@ -12,13 +12,7 @@ if (test_download) {
   load_all()
 }
 
-
 library(terra)
-library(tibble)
-library(dplyr)
-library(tidyr)
-library(magrittr)
-library(parallel)
 
 f <- system.file("ex/elev.tif", package = "terra")
 r <- rast(f)

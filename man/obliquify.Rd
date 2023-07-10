@@ -18,35 +18,43 @@ obliquify(
 )
 }
 \arguments{
-\item{x}{A spatraster object.}
+\item{x}{A \code{SpatRaster} object created by package \link{terra}.}
 
-\item{n_angles}{Number of angles for rotation. Defaults to length of angles when angles is not null.}
+\item{n_angles}{Number of angles for rotation. Defaults to length of \code{angles} when \code{angles} is not \code{NULL}.}
 
 \item{angles}{Numeric vector with specific angles for rotation, given in radians.}
 
-\item{na.rm}{Exclude areas which are NA in the original SpatRaster.}
+\item{na.rm}{Exclude areas that are \code{NA} in the original \code{SpatRaster}.}
 
-\item{n_digits}{Number of digits for rounding the oblique geographic coordinates.}
+\item{n_digits}{Number of digits for rounding the values in the output \code{SpatRaster}.}
 
-\item{digits_names}{Number of digits for the angles given in the layer names of the output.}
+\item{digits_names}{Number of digits for rounding the angle values given in the layer names of the output.}
 
-\item{filename}{File name for writing the output SpatRaster.}
+\item{filename}{File name for writing the output \code{SpatRaster}.}
 
-\item{n_blocks}{Number of blocks used for processing the SpatRaster.}
+\item{n_blocks}{Number of blocks used for processing the \code{SpatRaster}.}
 
-\item{n_cores}{Number of cores used for parallel processing. If NULL, no parallel processing is used.}
+\item{n_cores}{Number of cores used for parallel processing. If \code{NULL}, no parallel processing is used.}
 
-\item{...}{Optional arguments for writing the output SpatRaster.}
+\item{...}{Optional arguments for writing the output \code{SpatRaster}.}
 }
 \value{
-A SpatRaster with oblique geographic coordinates.
+A \code{SpatRaster} with oblique geographic coordinates.
 }
 \description{
-Generate oblique geographic coordinates
+Produces as SpatRaster object with a specified number of oblique geographic coordinates (OGCs), as described in Møller et al. (2020)
+}
+\details{
+The rotation angles for the coordinates will be evenly spaced by default. Alternatively, specific rotation angles can be given in radians as a numeric vector.
+
+The parameter \code{n_cores} can be used to specify a number of cores for parallel computation. Note that this will not always speed up computation. By default the function uses sequential computation.
 }
 \examples{
 library(terra)
 f <- system.file("ex/elev.tif", package = "terra")
 r <- rast(f)
 ogc_r <- obliquify(r)
+}
+\references{
+Møller, A.B., Beucher, A.M., Pouladi, N., Greve, M.H. (2020): Oblique geographic coordinates as covariates for digital soil mapping. SOIL 6(2), 269-289. \url{https://dx.doi.org/10.5194/soil-6-269-2020}
 }

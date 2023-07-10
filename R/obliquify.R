@@ -1,16 +1,24 @@
 #' Generate oblique geographic coordinates
 #'
-#' @param x A spatraster object.
-#' @param n_angles Number of angles for rotation. Defaults to length of angles when angles is not null.
+#' Produces as SpatRaster object with a specified number of oblique geographic coordinates (OGCs), as described in Møller et al. (2020)
+#'
+#' The rotation angles for the coordinates will be evenly spaced by default. Alternatively, specific rotation angles can be given in radians as a numeric vector.
+#'
+#' The parameter `n_cores` can be used to specify a number of cores for parallel computation. Note that this will not always speed up computation. By default the function uses sequential computation.
+#'
+#' @references Møller, A.B., Beucher, A.M., Pouladi, N., Greve, M.H. (2020): Oblique geographic coordinates as covariates for digital soil mapping. SOIL 6(2), 269-289. \url{https://dx.doi.org/10.5194/soil-6-269-2020}
+#'
+#' @param x A `SpatRaster` object created by package [terra].
+#' @param n_angles Number of angles for rotation. Defaults to length of `angles` when `angles` is not `NULL`.
 #' @param angles Numeric vector with specific angles for rotation, given in radians.
-#' @param na.rm Exclude areas which are NA in the original SpatRaster.
-#' @param n_digits Number of digits for rounding the oblique geographic coordinates.
-#' @param digits_names Number of digits for the angles given in the layer names of the output.
-#' @param filename File name for writing the output SpatRaster.
-#' @param n_blocks Number of blocks used for processing the SpatRaster.
-#' @param n_cores Number of cores used for parallel processing. If NULL, no parallel processing is used.
-#' @param ... Optional arguments for writing the output SpatRaster.
-#' @returns A SpatRaster with oblique geographic coordinates.
+#' @param na.rm Exclude areas that are `NA` in the original `SpatRaster`.
+#' @param n_digits Number of digits for rounding the values in the output `SpatRaster`.
+#' @param digits_names Number of digits for rounding the angle values given in the layer names of the output.
+#' @param filename File name for writing the output `SpatRaster`.
+#' @param n_blocks Number of blocks used for processing the `SpatRaster`.
+#' @param n_cores Number of cores used for parallel processing. If `NULL`, no parallel processing is used.
+#' @param ... Optional arguments for writing the output `SpatRaster`.
+#' @returns A `SpatRaster` with oblique geographic coordinates.
 #' @export
 #' @importFrom foreach registerDoSEQ
 #' @examples
