@@ -48,19 +48,19 @@ obliquify <- function(
     n_angles <- length(angles)
   }
   if (is.null(digits_names)) {
-    digits_names <- max(
-      2,
-      nchar(as.character(n_angles))
-    )
+    digits_names <- ceiling(log10(n_angles) + 1)
   }
   names_angles <- paste0(
     "pi",
-    format(
-      angles/pi,
-      digits = digits_names,
-      nsmall = digits_names
+    formatC(
+      (angles*10^digits_names)/pi,
+      format = "f",
+      width = digits_names,
+      digits = 0,
+      flag = "0"
     )
-  )
+  ) %>%
+    make.names()
   out <- terra::rast(x[[1]], nlyrs = n_angles)
   names(out)         <- names_angles
   out_info <- terra::writeStart(out, filename = filename, n = n_blocks, ...)
