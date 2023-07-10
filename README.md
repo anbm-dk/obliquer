@@ -207,6 +207,6 @@ importance is directionless.
 
 If you use the contents of the package, please refer to:
 
-Møller, A. B., Beucher, A. M., Pouladi, N., and Greve, M. H.: Oblique
-geographic coordinates as covariates for digital soil mapping, SOIL
-Discuss., <https://doi.org/10.5194/soil-2019-83>, in review, 2019.
+Møller, A.B., Beucher, A.M., Pouladi, N., Greve, M.H. (2020): Oblique
+geographic coordinates as covariates for digital soil mapping. SOIL
+6(2), 269-289. <https://dx.doi.org/10.5194/soil-6-269-2020>
