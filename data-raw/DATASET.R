@@ -14,14 +14,15 @@ cov <- wd %>%
   list.files(full.names = TRUE) %>%
   rast() %>%
   subset(
-    c("bluespot",
+    c(
+      "bluespot",
       "ECa",
       "elevation",
       "mrvbf",
       "sagawi",
       "valdepth"
-)
-    ) %>%
+    )
+  ) %>%
   round(2)
 
 # Remove CRS (add again in example)
@@ -34,8 +35,8 @@ Vindum_covariates <- wrap(cov)
 
 # Load soil observations
 
-obs <- paste0(wd, '/shapefiles/TrainPoint.shp') %>% vect()
-val <- paste0(wd, '/shapefiles/ValidationPoint.shp') %>% vect()
+obs <- paste0(wd, "/shapefiles/TrainPoint.shp") %>% vect()
+val <- paste0(wd, "/shapefiles/ValidationPoint.shp") %>% vect()
 
 obs$dataset <- "Training"
 val$dataset <- "Validation"
@@ -66,6 +67,6 @@ usethis::use_data(
   Vindum_covariates,
   Vindum_SOM,
   overwrite = TRUE
-  )
+)
 
 # END

@@ -26,7 +26,6 @@
 #' f <- system.file("ex/elev.tif", package = "terra")
 #' r <- rast(f)
 #' ogc_r <- obliquify(r)
-
 obliquify <- function(
     x,
     n_angles = 4,
@@ -37,13 +36,11 @@ obliquify <- function(
     filename = "",
     n_blocks = 4,
     n_cores = NULL,
-    ...
-) {
-
-  . <- NULL  # To avoid warnings in the package check.
+    ...) {
+  . <- NULL # To avoid warnings in the package check.
 
   if (is.null(angles)) {
-    angles <- pi*seq(0, 1, 1/(n_angles))[1:(n_angles)]
+    angles <- pi * seq(0, 1, 1 / (n_angles))[1:(n_angles)]
   } else {
     n_angles <- length(angles)
   }
@@ -53,7 +50,7 @@ obliquify <- function(
   names_angles <- paste0(
     "pi",
     formatC(
-      (angles*10^digits_names)/pi,
+      (angles * 10^digits_names) / pi,
       format = "f",
       width = digits_names,
       digits = 0,
@@ -62,22 +59,22 @@ obliquify <- function(
   ) %>%
     make.names()
   out <- terra::rast(x[[1]], nlyrs = n_angles)
-  names(out)         <- names_angles
+  names(out) <- names_angles
   out_info <- terra::writeStart(out, filename = filename, n = n_blocks, ...)
-  out_info$ncell     <- out_info$nrows * ncol(out)
-  out_info$cumcell   <- cumsum(out_info$ncell)
+  out_info$ncell <- out_info$nrows * ncol(out)
+  out_info$cumcell <- cumsum(out_info$ncell)
   out_info$startcell <- out_info$cumcell - out_info$ncell + 1
   stopifnot(out_info$cumcell[out_info$n] == terra::ncell(out))
 
   if (is.null(n_digits)) {
     rotate_xy <- function(xy) {
-      xy_rot <- cos(angles - atan((xy[2]/xy[1])))*sqrt(xy[1]^2 + xy[2]^2)
+      xy_rot <- cos(angles - atan((xy[2] / xy[1]))) * sqrt(xy[1]^2 + xy[2]^2)
       return(xy_rot)
     }
   } else {
     rotate_xy <- function(xy) {
       xy_rot <- round(
-        cos(angles - atan((xy[2]/xy[1])))*sqrt(xy[1]^2 + xy[2]^2),
+        cos(angles - atan((xy[2] / xy[1]))) * sqrt(xy[1]^2 + xy[2]^2),
         digits = n_digits
       )
       return(xy_rot)
@@ -116,7 +113,9 @@ obliquify <- function(
         cl = clust,
         x = xy_out,
         FUN = rotate_xy
-      ) %>% matrix(nrow = n_angles) %>% base::t(.)
+      ) %>%
+        matrix(nrow = n_angles) %>%
+        base::t(.)
     }
 
     terra::writeValues(
