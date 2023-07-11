@@ -1,7 +1,7 @@
 Package: obliquer
 Title: Oblique geographic coordinates for spatial predictions
-Version: 0.1
-Description: Methods to generate oblique geographic coordinates for spatial predictions with machine learning models.
+Version: 1.0.0
+Description: Methods to generate oblique geographic coordinates (OGCs) for use as covariates in spatial machine learning models. Taking a SpatRaster object, 'obliquer' can produce a set of layers with the coordinates of the cells, at a given number of rotation angles.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -12,9 +12,9 @@ Imports:
     terra
 URL: https://github.com/anbm-dk/obliquer
 BugReports: https://github.com/anbm-dk/obliquer/issues
-Authors@R: 
-    person("Anders Bjørn", "Møller", , "anbm@agro.au.dk", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0002-2737-5780"))
 Depends: 
     R (>= 2.10)
 LazyData: true
+Authors@R: 
+    person("Anders Bjørn", "Møller", , "anbm@agro.au.dk", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-2737-5780"))

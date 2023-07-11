@@ -12,14 +12,14 @@ x <- desc(file = "DESCRIPTION")
 x$set(
   Package = "obliquer",
   Title = "Oblique geographic coordinates for spatial predictions",
-  Description = "Methods to generate oblique geographic coordinates for spatial predictions with machine learning models.",
+  Description = "Methods to generate oblique geographic coordinates (OGCs) for use as covariates in spatial machine learning models. Taking a SpatRaster object, 'obliquer' can produce a set of layers with the coordinates of the cells, at a given number of rotation angles.",
   URL = "https://github.com/anbm-dk/obliquer",
   BugReports = "https://github.com/anbm-dk/obliquer/issues"
 )
 
 # Set version
 
-x$set_version("0.1")
+x$set_version("1.0.0")
 
 # Set dependencies
 

@@ -1,13 +1,13 @@
 # Setup
 
-install.packages(
-  c(
-    "devtools",
-    "roxygen2",
-    "testthat",
-    "knitr",
-    "pkgload")
-)
+# install.packages(
+#   c(
+#     "devtools",
+#     "roxygen2",
+#     "testthat",
+#     "knitr",
+#     "pkgload")
+# )
 
 library(devtools)
 library(usethis)

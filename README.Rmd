@@ -13,9 +13,9 @@ knitr::opts_chunk$set(
 
 # obliquer
 
-The package is currently in development.
+The goal of `obliquer` is to produce geographic raster layers with oblique geographic coordinates (OGCs) for use as covariates in spatial machine learning models. OGCs are the coordinates of the grid cells along a series of axes rotated at oblique angles relative to the x-axis. These coordinate rasters can be used as covariates for machine learning models, in order to incorporate spatial relationships in the prediction.
 
-The goal of `obliquer` is to produce geographic layers with oblique geographic coordinates (OGCs) for use as covariates for spatial machine learning models. OGCs are the coordinates of the grid cells along a series of axes rotated at oblique angles relative to the x-axis. These coordinate rasters can be used as covariates for machine learning models, in order to incorporate spatial relationships in the prediction.
+The package is superficially similar to the previous package [OGC](https://bitbucket.org/abmoeller/ogc/src/master/rPackage/OGC/), which it aims to supersede. The main new features of `obliquer` is its dependency on the `terra` package, improved memory efficiency, and a larger set of options.
 
 For questions about the package, please contact Anders Bjørn Møller ([email](mailto:anbm@agro.au.dk)).
 
