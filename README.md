@@ -53,7 +53,7 @@ ogcs
 #> names       :     pi00,    pi17,    pi33,    pi50,    pi67,    pi83 
 #> min values  : 534871.2, 3587150, 5678172, 6247734, 5143128, 2660309 
 #> max values  : 535338.4, 3587606, 5678659, 6248124, 5143497, 2660792
-plot(ogcs, legend = FALSE)
+plot(ogcs, legend = NULL)
 ```
 
 ![](README_files/figure-gfm/example1-1.png)<!-- -->
