@@ -46,7 +46,7 @@ my_cov <- unwrap(Vindum_covariates)
 crs(my_cov) <- "EPSG:25832"
 ogcs <- obliquify(my_cov, 6)
 ogcs
-plot(ogcs)
+plot(ogcs, legend = FALSE)
 ```
 
 The oblique geographic coordinates can be used as covariates for spatial predictions. This example shows how to use them for predicting the amounts of soil organic matter (SOM) in the Vindum field, using Random Forest models trained using the package `ranger`. If ranger is not installed, first run:
