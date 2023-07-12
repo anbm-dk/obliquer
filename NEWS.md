@@ -1,3 +1,7 @@
 # obliquer 1.0.1
 
-* Initial CRAN submission.
+* Updated function documentation for `obliquer`.
+
+# obliquer 1.0.0
+
+* Initial version released on github.

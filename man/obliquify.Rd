@@ -18,21 +18,21 @@ obliquify(
 )
 }
 \arguments{
-\item{x}{A \code{SpatRaster} object created by package \link{terra}.}
+\item{x}{An input \code{SpatRaster} object created by package \link{terra}.}
 
-\item{n_angles}{Number of angles for rotation. Defaults to length of \code{angles} when \code{angles} is not \code{NULL}.}
+\item{n_angles}{Integer. Number of angles for rotation. Defaults to the length of \code{angles} when \code{angles} is not \code{NULL}.}
 
-\item{angles}{Numeric vector with specific angles for rotation, given in radians.}
+\item{angles}{Numeric vector with specific angles for rotation in radians.}
 
-\item{na.rm}{Exclude areas that are \code{NA} in the original \code{SpatRaster}.}
+\item{na.rm}{Logical. Should the function exclude areas that are \code{NA} in the input \code{SpatRaster}? The default \code{TRUE} will only calculate OGCs for the cells in \code{x} that have values. If \code{FALSE}, the output will cover the entire extent of \code{x}.}
 
-\item{n_digits}{Number of digits for rounding the values in the output \code{SpatRaster}.}
+\item{n_digits}{Integer. Number of digits for rounding the values in the output \code{SpatRaster}.}
 
-\item{digits_names}{Number of digits for rounding the angle values given in the layer names of the output.}
+\item{digits_names}{Integer. Number of digits for rounding the rotation angles given in the layer names of the output. Only affects the layer names.}
 
 \item{filename}{File name for writing the output \code{SpatRaster}.}
 
-\item{n_blocks}{Number of blocks used for processing the \code{SpatRaster}.}
+\item{n_blocks}{Number of blocks used for processing \code{x}.}
 
 \item{n_cores}{Number of cores used for parallel processing. If \code{NULL}, no parallel processing is used.}
 
@@ -42,12 +42,16 @@ obliquify(
 A \code{SpatRaster} with oblique geographic coordinates.
 }
 \description{
-Produces as SpatRaster object with a specified number of oblique geographic coordinates (OGCs), as described in Møller et al. (2020)
+Produces as \code{SpatRaster} object with a specified number of oblique geographic coordinates (OGCs; Møller et al., 2020).
 }
 \details{
-The rotation angles for the coordinates will be evenly spaced by default. Alternatively, specific rotation angles can be given in radians as a numeric vector.
+The rotation angles for the OGCs will be evenly spaced by default. Alternatively, specific rotation angles can be given in radians as a numeric vector.
 
-The parameter \code{n_cores} can be used to specify a number of cores for parallel computation. Note that this will not always speed up computation. By default the function uses sequential computation.
+The parameter \code{n_cores} sets the number of cores for parallel processing. Note that this will not always speed up computation. By default the function uses sequential processing.
+
+Setting a higher value for \code{n_blocks} will decrease the memory usage of the function, which can be useful for large rasters.
+
+The parameters \code{n_blocks} and \code{n_cores} can be used together. The function processes the blocks sequentially, so \code{n_cores} will only cause parallel processing at the cell level.
 }
 \examples{
 library(terra)

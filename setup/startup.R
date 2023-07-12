@@ -39,6 +39,8 @@ R.version.string
 
 # usethis::use_readme_rmd()  # Creates and rmd for the readme, adds it to buildignore
 
+# usethis::use_news_md()
+
 # usethis::use_description()
 
 devtools::build_readme()  # Renders the readme

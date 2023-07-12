@@ -1,6 +1,6 @@
 Package: obliquer
 Title: Oblique geographic coordinates for spatial predictions
-Version: 1.0.0
+Version: 1.0.1
 Description: Methods to generate oblique geographic coordinates (OGCs) for use as covariates in spatial machine learning models. Taking a SpatRaster object, 'obliquer' can produce a set of layers with the coordinates of the cells, at a given number of rotation angles.
 License: MIT + file LICENSE
 Encoding: UTF-8
