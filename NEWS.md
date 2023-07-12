@@ -1,6 +1,6 @@
 # obliquer 1.0.1
 
-* Updated function documentation for `obliquer`.
+* Updated function documentation for `obliquify`.
 
 # obliquer 1.0.0
 
